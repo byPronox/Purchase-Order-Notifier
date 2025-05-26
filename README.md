@@ -3,50 +3,49 @@
 A sample Python project that simulates a real-world queue system using RabbitMQ. It demonstrates the producer-consumer pattern for handling online store orders.
 
 ## ✅ Features
-- Uses a custom virtual host and user in RabbitMQ
-- Message durability (persistent exchange and queue)
+- Automatic RabbitMQ setup with custom virtual host and user
+- Durable exchanges and queues for message persistence
 - Clean separation of producer and consumer logic
+- Fully containerized with Docker Compose
 
 ## 🛠 Technologies
 - Python 3
-- RabbitMQ with Docker
+- RabbitMQ (Dockerized)
 - pika (RabbitMQ Python client)
+- Docker & Docker Compose
 
-## 🔧 Setup
+## 🚀 Quick Start
 
-1. Clone the repository:
-```bash
-git clone https://github.com/your-user/purchase-order-notifier.git
-cd purchase-order-notifier
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-user/purchase-order-notifier.git
+   cd purchase-order-notifier
+   ```
 
-2. Run RabbitMQ:
-```bash
-docker-compose up -d
-```
+2. **Start all services (RabbitMQ, Producer, Consumer):**
+   ```bash
+   docker-compose up --build
+   ```
 
-3. Set up virtual host `store` and user `storeuser` in the RabbitMQ UI.
+   - This will automatically:
+     - Set up RabbitMQ with the virtual host `store` and user `storeuser`
+     - Build and run the producer and consumer containers
 
-4. Install dependencies:
-```bash
-pip install pika
-```
+3. **Check the logs:**
+   - The producer will send a sample order event.
+   - The consumer will receive and print the order event.
 
-5. Run producer:
-```bash
-python producer.py
-```
+4. **RabbitMQ Management UI:**
+   - Access at [http://localhost:15672](http://localhost:15672)
+   - Login with:
+     - **User:** `storeuser`
+     - **Password:** `storepass`
 
-6. Run consumer (in another terminal):
-```bash
-python consumer.py
-```
-
-## 📦 Queue Setup
-- Virtual Host: `store`
-- Exchange: `store.topic` (topic)
-- Queue: `store.order.new`
-- Routing Key: `order.created`
+## 📦 Queue Setup (automatic)
+- **Virtual Host:** `store`
+- **Exchange:** `store.topic` (type: topic)
+- **Queue:** `store.order.new`
+- **Routing Key:** `order.created`
 
 ## 👥 Authors
 - Stefan Jativa & Daniel Diaz
