@@ -50,6 +50,3 @@ python consumer.py
 
 ## 👥 Authors
 - Stefan Jativa & Daniel Diaz
-```
-
-
