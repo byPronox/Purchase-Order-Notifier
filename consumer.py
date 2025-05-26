@@ -18,7 +18,7 @@ for i in range(10):
         print("RabbitMQ no está listo, reintentando en 3 segundos...")
         time.sleep(3)
 else:
-    raise Exception("No se pudo conectar a RabbitMQ después de varios intentos.")
+    raise Exception("Could not connect to RabbitMQ after several attempts.")
 
 channel = connection.channel()
 
