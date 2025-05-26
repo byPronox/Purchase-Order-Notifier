@@ -27,7 +27,7 @@ A sample Python project that simulates a real-world queue system using RabbitMQ.
    docker-compose up --build
    ```
 
-   - This will automatically:
+   This will automatically:
      - Set up RabbitMQ with the virtual host `store` and user `storeuser`
      - Build and run the producer and consumer containers
 
@@ -41,7 +41,7 @@ A sample Python project that simulates a real-world queue system using RabbitMQ.
      - **User:** `storeuser`
      - **Password:** `storepass`
 
-## 📦 Queue Setup (automatic)
+## 📦 Queue Setup on RabbitMQ
 - **Virtual Host:** `store`
 - **Exchange:** `store.topic` (type: topic)
 - **Queue:** `store.order.new`
