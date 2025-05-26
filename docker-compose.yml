@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: storeuser
+      RABBITMQ_DEFAULT_PASS: storepass
+      RABBITMQ_DEFAULT_VHOST: store
+
+  producer:
+    build: .
+    depends_on:
+      - rabbitmq
+
+  consumer:
+    build: .
+    command: python consumer.py
+    depends_on:
+      - rabbitmq
