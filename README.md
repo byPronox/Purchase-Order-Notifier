@@ -17,7 +17,7 @@ A Python project that demonstrates a real-world producer-consumer scenario using
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-user/purchase-order-notifier.git
+   git clone https://github.com/byPronox/Purchase-Order-Notifier/tree/stefan
    cd purchase-order-notifier
    ```
 
@@ -61,5 +61,5 @@ A Python project that demonstrates a real-world producer-consumer scenario using
   config/config.json
   ```
 
-## 👥 Authors
-- Stefan Jativa & Daniel Diaz
+## 👥 Author
+- Stefan Jativa
