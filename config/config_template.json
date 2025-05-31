@@ -1,0 +1,5 @@
+{
+  "SERVICE_BUS_CONNECTION_STR_SEND": "Endpoint=sb://<your-namespace>.servicebus.windows.net/;SharedAccessKeyName=Send;SharedAccessKey=<your-key>;EntityPath=your-queue",
+  "SERVICE_BUS_CONNECTION_STR_LISTEN": "Endpoint=sb://<your-namespace>.servicebus.windows.net/;SharedAccessKeyName=Listen;SharedAccessKey=<your-key>;EntityPath=your-queue",
+  "QUEUE_NAME": "your-queue"
+}
