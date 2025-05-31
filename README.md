@@ -1,8 +1,8 @@
-# Purchase Order Notifier
+# Gestor de colas - Productor y Consumidor para Azure Service Bus
 
-A sample Python project that simulates a real-world queue system using RabbitMQ. It demonstrates the producer-consumer pattern for handling online store orders.
+Se implemento un productor y un consumidor en Python para interactuar con una cola de Azure Service Bus llamada "cola-diaz" dentro del namespace "ServiceBusDiaz". El productor envía mensajes y el consumidor los recibe, utilizando políticas de acceso compartido separadas para "Send" y "Listen".
 
-## ✅ Features
+## Requisitos
 - Automatic RabbitMQ setup with custom virtual host and user
 - Durable exchanges and queues for message persistence
 - Clean separation of producer and consumer logic
@@ -10,42 +10,23 @@ A sample Python project that simulates a real-world queue system using RabbitMQ.
 
 ## 🛠 Technologies
 - Python 3
-- RabbitMQ (Dockerized)
-- pika (RabbitMQ Python client)
-- Docker & Docker Compose
+- Paquete azure-servicebus (pip install azure-servicebus)
+- Namespace y cola configurados en Azure Service Bus
 
-## 🚀 Quick Start
+## Estructura
+- producerAzure.py: Código del productor que envía mensajes a la cola.
+- consumerAzure.py: Código del consumidor que recibe mensajes.
+- config.ini: Archivo de configuración con las cadenas de conexión para   las políticas "Send" y "Listen".
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-user/purchase-order-notifier.git
-   cd purchase-order-notifier
-   ```
+## Portal Azure
+- Namespace y Cola: Muestra el namespace "ServiceBusDiaz" y la cola "cola-diaz".
 
-2. **Start all services (RabbitMQ, Producer, Consumer):**
-   ```bash
-   docker-compose up --build
-   ```
+- Directivas de Acceso Compartido: Detalla las políticas "Send" y "Listen" configuradas para la cola "cola-diaz".
 
-   This will automatically:
-     - Set up RabbitMQ with the virtual host `store` and user `storeuser`
-     - Build and run the producer and consumer containers
+## Uso
+- El archivo producerAzure.py envía un mensaje de prueba ("¡Hola desde el Productor!") a la cola "cola-diaz".
 
-3. **Check the logs:**
-   - The producer will send a sample order event.
-   - The consumer will receive and print the order event.
+- El archivo consumerAzure.py escucha mensajes de la cola y los procesa, completándolos con receiver.complete_message(msg).
 
-4. **RabbitMQ Management UI:**
-   - Access at [http://localhost:15672](http://localhost:15672)
-   - Login with:
-     - **User:** `storeuser`
-     - **Password:** `storepass`
-
-## 📦 Queue Setup on RabbitMQ
-- **Virtual Host:** `store`
-- **Exchange:** `store.topic` (type: topic)
-- **Queue:** `store.order.new`
-- **Routing Key:** `order.created`
-
-## 👥 Authors
-- Stefan Jativa & Daniel Diaz
+# Autor
+Daniel Diaz
